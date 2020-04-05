@@ -3,13 +3,18 @@ package jp.cordea.forest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
-import androidx.ui.core.Text
+import androidx.ui.core.Modifier
 import androidx.ui.core.setContent
+import androidx.ui.foundation.Box
 import androidx.ui.foundation.Clickable
+import androidx.ui.foundation.Text
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.layout.*
+import androidx.ui.layout.Column
+import androidx.ui.layout.LayoutHeight
+import androidx.ui.layout.LayoutWidth
+import androidx.ui.layout.fillMaxWidth
 import androidx.ui.material.MaterialTheme
-import androidx.ui.material.ripple.Ripple
+import androidx.ui.material.ripple.ripple
 import androidx.ui.unit.dp
 
 class MainActivity : AppCompatActivity() {
@@ -31,12 +36,10 @@ class MainActivity : AppCompatActivity() {
 
 @Composable
 fun Item(app: AppResolver.App) {
-    Ripple(bounded = true) {
-        Clickable(onClick = { app.launch() }) {
-            Container(padding = EdgeInsets(16.dp)) {
-                Column(modifier = LayoutWidth.Fill) {
-                    Text(text = app.name)
-                }
+    Clickable(onClick = { app.launch() }, modifier = Modifier.ripple()) {
+        Box(padding = 16.dp) {
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(text = app.name)
             }
         }
     }
