@@ -14,6 +14,8 @@ import androidx.ui.material.MaterialTheme
 import androidx.ui.material.ripple.ripple
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
+import androidx.ui.text.font.asFontFamily
+import androidx.ui.text.font.font
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
 
@@ -47,6 +49,7 @@ fun Item(app: AppResolver.App) {
                     style = TextStyle(
                         color = Color.White,
                         fontSize = 16.sp,
+                        fontFamily = font(R.font.raleway_light).asFontFamily(),
                         fontWeight = FontWeight.Bold
                     ),
                     text = app.name,
