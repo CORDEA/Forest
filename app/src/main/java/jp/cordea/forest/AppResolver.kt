@@ -21,7 +21,7 @@ class AppResolver(private val context: Context) {
 
         fun launch() {
             context.startActivity(
-                context.packageManager.getLaunchIntentForPackage(resolveInfo.resolvePackageName)
+                context.packageManager.getLaunchIntentForPackage(resolveInfo.activityInfo.packageName)
             )
         }
     }
