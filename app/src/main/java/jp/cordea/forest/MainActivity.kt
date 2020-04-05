@@ -7,11 +7,15 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.ui.core.Modifier
 import androidx.ui.core.setContent
 import androidx.ui.foundation.*
+import androidx.ui.graphics.Color
 import androidx.ui.graphics.asImageAsset
 import androidx.ui.layout.*
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.ripple.ripple
+import androidx.ui.text.TextStyle
+import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
+import androidx.ui.unit.sp
 
 class MainActivity : AppCompatActivity() {
     private val resolver by lazy { AppResolver(this) }
@@ -39,7 +43,15 @@ fun Item(app: AppResolver.App) {
                     Image(asset = app.icon.toBitmap().asImageAsset())
                 }
                 Spacer(modifier = Modifier.preferredWidth(8.dp))
-                Text(text = app.name, modifier = Modifier.gravity(RowAlign.Center))
+                Text(
+                    style = TextStyle(
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    ),
+                    text = app.name,
+                    modifier = Modifier.gravity(RowAlign.Center)
+                )
             }
         }
     }
