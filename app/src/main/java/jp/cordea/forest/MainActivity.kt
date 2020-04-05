@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                VerticalScroller(modifier = LayoutHeight.Fill + LayoutWidth.Fill) {
+                VerticalScroller(modifier = Modifier.fillMaxSize()) {
                     Column {
                         resolver.resolve().forEach { Item(it) }
                     }
@@ -38,7 +38,8 @@ fun Item(app: AppResolver.App) {
                 Box(modifier = Modifier.preferredWidth(46.dp) + Modifier.preferredHeight(46.dp)) {
                     Image(asset = app.icon.toBitmap().asImageAsset())
                 }
-                Text(text = app.name)
+                Spacer(modifier = Modifier.preferredWidth(8.dp))
+                Text(text = app.name, modifier = Modifier.gravity(RowAlign.Center))
             }
         }
     }
